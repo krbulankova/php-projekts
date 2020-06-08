@@ -1,0 +1,73 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\StoreAuthor;
+use Illuminate\Http\Request;
+use App\Author;
+
+class AuthorController extends Controller
+{
+    public function index()
+    {
+        $items = Author::orderBy('name', 'asc')->get();
+        return view('author.list', [
+            'title' => 'Authors',
+            'items' => $items
+        ]);
+
+    }
+
+    public function create()
+    {
+        return view('author.form', [
+            'title' => 'Add author',
+            'author' => new Author()
+        ]);
+    }
+
+    public function store(StoreAuthor $request)
+    {
+        $author = new Author();
+        $this->saveAuthorData($author, $request);
+        return redirect('/authors');
+    }
+
+    public function edit(Author $author)
+    {
+
+        return view('author.form', [
+            'title' => 'Edit author',
+            'author' => $author
+        ]);
+    }
+
+    public function update(Author $author,StoreAuthor $request)
+    {
+
+        $this->saveAuthorData($author, $request);
+        return redirect('/authors');
+    }
+
+    public function delete(Author $author)
+    {
+        $author->delete();
+        return redirect('/authors');
+    }
+
+    private function saveAuthorData($author, $request)
+    {
+        $validated = $request->validated();
+        $author->name = $validated['name'];
+        $author->display = (bool) ($validated['display'] ?? false);
+        $author->save();
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+
+}
