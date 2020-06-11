@@ -15,7 +15,7 @@
                     <tr>
                         <th>ID</td>
                         <th>Name</td>
-                        <th>Publicated</td>
+                        <th>Published</td>
                         <th>&nbsp;</td>
                     </tr>
                     </thead>

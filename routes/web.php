@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomepageController@index')->name('home');
 Route::get('/authors', 'AuthorController@index');
 Route::get('/authors/create', 'AuthorController@create');
 Route::post('/authors/store', 'AuthorController@store');
@@ -32,6 +32,16 @@ Route::get('/books/edit/{book}', 'BookController@edit');
 Route::post('/books/update/{book}', 'BookController@update');
 Route::get('/books/delete/{book}', 'BookController@delete');
 
+Route::get('/genre', 'GenreController@index');
+Route::get('/genre/create', 'GenreController@create');
+Route::post('/genre/store', 'GenreController@store');
+Route::get('/genre/edit/{genre}', 'GenreController@edit');
+Route::post('/genre/update/{genre}', 'GenreController@update');
+Route::get('/genre/delete/{genre}', 'GenreController@delete');
 
+Route::prefix('book-service')->group(function () {
+    Route::get('get-top-books', 'BookServiceController@getTopBooks');
+    Route::get('get-book/{book}', 'BookServiceController@getBook');
+    Route::get('get-related-books/{book}', 'BookServiceController@getRelated');
+});
 
-//Route::get('/', 'HomepageController@index')->name('home');

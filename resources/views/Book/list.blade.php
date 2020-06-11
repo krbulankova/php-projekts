@@ -19,7 +19,7 @@
                         <th>Year</th>
                         <th>Price</th>
                         <th>Description</th>
-                        <th>Publicated</th>
+                        <th>Published</th>
                         <th>&nbsp;</th>
                     </tr>
                     </thead>

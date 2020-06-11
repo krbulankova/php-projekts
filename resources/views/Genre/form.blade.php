@@ -14,37 +14,26 @@
 
             <form
                 method="POST"
-                action="{{ $author->exists ? '/authors/update/' . $author->id : '/authors/store' }}"
+                action="{{ $genre->exists ? '/genre/update/' . $genre->id : '/genre/store' }}"
             >
                 @csrf
 
                 <div class="form-group">
-                    <label for="author-name">Name</label>
+                    <label for="genre-name">Genre</label>
 
                     <input
                         type="text"
                         name="name"
-                        id="author-name"
-                        class="form-control @error('name') is-invalid @enderror"
-                        value="{{ old('name', $author->name) }}"
-                        placeholder="Name, surname"
+                        id="genre-name"
+                        class="form-control @error('genre') is-invalid @enderror"
+                        value="{{ old('name', $genre->name) }}"
+                        placeholder="Genre"
                     >
 
                     @error('name')
                     <p class="invalid-feedback">{{ $errors->first('name') }}</p>
                     @enderror
                 </div>
-
-                <div class="form-group form-check">
-                    <input
-                        type="checkbox"
-                        name="display"
-                        id="author-display"
-                        class="form-check-input @error('display') is-invalid @enderror"
-                        @if ($author->display) checked @endif
-                    >
-
-                    <label for="author-display" class="form-check-label">Publish</label>
 
                     @error('display')
                     <p class="invalid-feedback">{{ $errors->first('display') }}</p>

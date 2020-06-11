@@ -53,8 +53,30 @@
                         @endforeach
                     </select>
 
-                    @error('author_id')
-                    <p class="invalid-feedback">{{ $errors->first('author_id') }}</p>
+                    @error('genre_id')
+                    <p class="invalid-feedback">{{ $errors->first('genre_id') }}</p>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="book-genre">Genre</label>
+
+                    <select
+                        name="genre_id"
+                        id="book-genre"
+                        class="form-control @error('genre_id') is-invalid @enderror"
+                    >
+                        <option value="">Select genre!</option>
+                        @foreach($genre as $genre)
+                            <option
+                                value="{{ $genre->id }}"
+                                @if ($genre->id == old('genre_id', $book->genre->id ?? false)) selected @endif
+                            >{{ $genre->name }}</option>
+                        @endforeach
+                    </select>
+
+                    @error('genre_id')
+                    <p class="invalid-feedback">{{ $errors->first('genre_id') }}</p>
                     @enderror
                 </div>
 
@@ -145,7 +167,7 @@
                         @if ($book->display) checked @endif
                     >
 
-                    <label for="book-display" class="form-check-label">Publicate</label>
+                    <label for="book-display" class="form-check-label">Publish</label>
 
                     @error('display')
                     <p class="invalid-feedback">{{ $errors->first('display') }}</p>
