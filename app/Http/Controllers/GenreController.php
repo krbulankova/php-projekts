@@ -42,6 +42,7 @@ class GenreController extends Controller
     {
         $validated = $request->validated();
         $genre->name = $validated['name'];
+        $genre->display = (bool) ($validated['display'] ?? false);
         $genre->save();
     }
     public function edit(Genre $genre)

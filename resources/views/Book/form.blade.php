@@ -53,8 +53,8 @@
                         @endforeach
                     </select>
 
-                    @error('genre_id')
-                    <p class="invalid-feedback">{{ $errors->first('genre_id') }}</p>
+                    @error('author_id')
+                    <p class="invalid-feedback">{{ $errors->first('author_id') }}</p>
                     @enderror
                 </div>
 
@@ -67,7 +67,7 @@
                         class="form-control @error('genre_id') is-invalid @enderror"
                     >
                         <option value="">Select genre!</option>
-                        @foreach($genre as $genre)
+                        @foreach($genres as $genre)
                             <option
                                 value="{{ $genre->id }}"
                                 @if ($genre->id == old('genre_id', $book->genre->id ?? false)) selected @endif

@@ -17,6 +17,7 @@ class CreateBooksTable extends Migration
             $table->id();
 
             $table->foreignId('author_id');
+            $table->foreignId('genre_id');
             $table->string('name', 256);
             $table->text('description')->nullable();
             $table->decimal('price', 8, 2)->nullable();

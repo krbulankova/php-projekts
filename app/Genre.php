@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Genre extends Model
 {
-    public function author()
+    public function books()
     {
-        return $this->belongsTo('App\Author');
+        return $this->hasMany('App\Book');
     }
 }

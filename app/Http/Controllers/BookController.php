@@ -32,7 +32,7 @@ class BookController extends Controller
         return view('book.form', [
             'title' => 'Add book',
             'authors' => Author::orderBy('name', 'asc')->get(),
-            'genre' => Genre::orderBy('name', 'asc')->get(),
+            'genres' => Genre::orderBy('name', 'asc')->get(),
             'book' => new Book()
         ]);
     }
@@ -49,7 +49,7 @@ class BookController extends Controller
         return view('book.form', [
             'title' => 'Edit book',
             'authors' => Author::orderBy('name', 'asc')->get(),
-            'genre' => Genre::orderBy('name', 'asc')->get(),
+            'genres' => Genre::orderBy('name', 'asc')->get(),
             'book' => $book
         ]);
     }

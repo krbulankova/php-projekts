@@ -35,6 +35,17 @@
                     @enderror
                 </div>
 
+                <div class="form-group form-check">
+                    <input
+                        type="checkbox"
+                        name="display"
+                        id="genre-display"
+                        class="form-check-input @error('display') is-invalid @enderror"
+                        @if ($genre->display) checked @endif
+                    >
+
+                    <label for="genre-display" class="form-check-label">Publish</label>
+
                     @error('display')
                     <p class="invalid-feedback">{{ $errors->first('display') }}</p>
                     @enderror

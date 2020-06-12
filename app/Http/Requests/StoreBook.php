@@ -26,11 +26,11 @@ class StoreBook extends FormRequest
         return [
                 'name' => 'required|min:3|max:128',
                 'author_id' => 'required',
+                'genre_id'=>'required',
                 'description' => 'nullable',
                 'price' => 'nullable|numeric',
                 'year' => 'numeric',
                 'image' => 'nullable|image',
-                'genre_id'=>'required',
                 'display' => 'nullable'
 
         ];

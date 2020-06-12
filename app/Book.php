@@ -6,11 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    protected $fillable = ['name', 'author_id', 'description', 'price', 'year', 'image', 'display'];
+    protected $fillable = ['name', 'author_id', 'genre_id', 'description', 'price', 'year', 'image', 'display'];
 
     public function author()
     {
         return $this->belongsTo('App\Author');
+    }
+
+    public function genre()
+    {
+        return $this->belongsTo('App\Genre');
     }
 
     public function jsonSerialize()
@@ -18,7 +23,7 @@ class Book extends Model
         return [
             'id' => intval($this->id),
             'author' => $this->author->name,
-            'topic' => $this->topic->name,
+            'genre' => $this->genre->name,
             'name' => $this->name,
             'description' => $this->description,
             'price' => number_format($this->price, 2),

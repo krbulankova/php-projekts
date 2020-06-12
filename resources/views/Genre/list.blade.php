@@ -15,6 +15,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Published</th>
                         <th>&nbsp;</th>
                     </tr>
                     </thead>
@@ -25,6 +26,7 @@
                         <tr>
                             <td>{{ $genre->id }}</td>
                             <td>{{ $genre->name }}</td>
+                            <td>{!! $genre->display ? '&#10004;&#65039;' : '&#10060;' !!}</td>
                             <td>
                                 <a href="/genre/edit/{{ $genre->id }}" class="btn btn-outline-primary">Edit</a>
                                 <a href="/genre/delete/{{ $genre->id }}"

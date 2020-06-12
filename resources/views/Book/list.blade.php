@@ -16,6 +16,7 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Author</th>
+                        <th>Genre</th>
                         <th>Year</th>
                         <th>Price</th>
                         <th>Description</th>
@@ -31,6 +32,7 @@
                             <td>{{ $book->id }}</td>
                             <td>{{ $book->name }}</td>
                             <td>{{ $book->author->name }}</td>
+                            <td>{{ $book->genre->name }}</td>
                             <td>{{ $book->year }}</td>
                             <td>{{ $book->price }}</td>
                             <td>{{ Str::limit($book->description, 64) }}</td>
